@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -24,6 +25,67 @@ class CoinMarketCall {
       cache: false,
     );
   }
+
+  static dynamic nama(dynamic response) => getJsonField(
+        response,
+        r'''$[:].name''',
+        true,
+      );
+  static dynamic gambar(dynamic response) => getJsonField(
+        response,
+        r'''$[:].image''',
+        true,
+      );
+  static dynamic harga(dynamic response) => getJsonField(
+        response,
+        r'''$[:].current_price''',
+        true,
+      );
+  static dynamic marketcap(dynamic response) => getJsonField(
+        response,
+        r'''$[:].market_cap''',
+        true,
+      );
+  static dynamic marketrank(dynamic response) => getJsonField(
+        response,
+        r'''$[:].market_cap_rank''',
+        true,
+      );
+  static dynamic high24(dynamic response) => getJsonField(
+        response,
+        r'''$[:].high_24h''',
+        true,
+      );
+  static dynamic low24(dynamic response) => getJsonField(
+        response,
+        r'''$[:].low_24h''',
+        true,
+      );
+  static dynamic princechange24(dynamic response) => getJsonField(
+        response,
+        r'''$[:].price_change_24h''',
+        true,
+      );
+  static dynamic persentasechange24(dynamic response) => getJsonField(
+        response,
+        r'''$[:].price_change_percentage_24h''',
+        true,
+      );
+  static dynamic marketcapchange24(dynamic response) => getJsonField(
+        response,
+        r'''$[:].market_cap_change_24h''',
+        true,
+      );
+  static dynamic marketcappresentasechange24(dynamic response) => getJsonField(
+        response,
+        r'''$[:].market_cap_change_percentage_24h''',
+        true,
+      );
+  static dynamic kode(dynamic response) => getJsonField(
+        response,
+        r'''$[:].symbol''',
+        true,
+      );
 }
 
 class ApiPagingParams {
