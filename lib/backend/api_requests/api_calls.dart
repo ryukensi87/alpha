@@ -26,7 +26,9 @@ class CoinMarketCall {
         'https':
             '//api.coingecko.com/api/v3/coins/markets?vs_currency=IDR&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en \\ -H accept: application/json',
       },
-      params: {},
+      params: {
+        'price': currentPrice,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
