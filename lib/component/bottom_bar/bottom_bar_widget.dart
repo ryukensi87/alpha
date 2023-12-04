@@ -24,6 +24,8 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomBarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -63,20 +65,29 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                 ),
               ],
             ),
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.bar_chart,
-                  color: FlutterFlowTheme.of(context).secondaryText,
-                  size: 30.0,
-                ),
-                Text(
-                  'Market',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-              ],
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed('Market');
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.bar_chart,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 30.0,
+                  ),
+                  Text(
+                    'Market',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
+              ),
             ),
             Column(
               mainAxisSize: MainAxisSize.max,

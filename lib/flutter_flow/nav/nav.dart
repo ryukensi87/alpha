@@ -93,6 +93,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SignUp',
           path: '/signUp',
           builder: (context, params) => const SignUpWidget(),
+        ),
+        FFRoute(
+          name: 'Market',
+          path: '/market',
+          builder: (context, params) => const MarketWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -275,7 +280,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/Alpha_Logo.png',
+                    'assets/images/Alpha_Logo-removebg-preview.png',
                     fit: BoxFit.contain,
                   ),
                 )

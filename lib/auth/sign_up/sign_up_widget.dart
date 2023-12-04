@@ -21,6 +21,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SignUpModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

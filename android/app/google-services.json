@@ -1,44 +1,26 @@
 {
   "project_info": {
-    "project_number": "54618337042",
-    "firebase_url": "https://alpha-5a532-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "alpha-5a532",
-    "storage_bucket": "alpha-5a532.appspot.com"
+    "project_number": "428932700588",
+    "project_id": "alpha-d758d",
+    "storage_bucket": "alpha-d758d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:54618337042:android:c186647b1cf3bb5d7d8dcb",
+        "mobilesdk_app_id": "1:428932700588:android:a036c301d3831344fdc209",
         "android_client_info": {
           "package_name": "com.mycompany.alpha"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "54618337042-n8hv1f2lnd5o92fj29203t9kgmdq7jmb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDzMwzLf3SR2-N7ZyD5_5Cu5-WtrRKp-84"
+          "current_key": "AIzaSyCoFee8KZXUIX25WTJch0AL3vgmnyFLspA"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "54618337042-n8hv1f2lnd5o92fj29203t9kgmdq7jmb.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "54618337042-vpe4qtd8ldtldj6oe664v3g6g468co0j.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mycompany.alpha"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

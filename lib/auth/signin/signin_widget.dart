@@ -21,6 +21,8 @@ class _SigninWidgetState extends State<SigninWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SigninModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

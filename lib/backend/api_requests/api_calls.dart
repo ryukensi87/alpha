@@ -8,7 +8,15 @@ export 'api_manager.dart' show ApiCallResponse;
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class CoinMarketCall {
-  static Future<ApiCallResponse> call() async {
+  static Future<ApiCallResponse> call({
+    List<String>? nameList,
+    List<String>? imageList,
+    List<double>? currentPriceList,
+  }) async {
+    final name = _serializeList(nameList);
+    final image = _serializeList(imageList);
+    final currentPrice = _serializeList(currentPriceList);
+
     return ApiManager.instance.makeApiCall(
       callName: 'CoinMarket',
       apiUrl:
