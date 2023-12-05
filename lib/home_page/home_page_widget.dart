@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -46,6 +47,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -413,12 +416,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        20.0,
+                                                                        10.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
-                                                              'Hello World',
+                                                              'Thanks for Try Aplication Alpa Exchange',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
