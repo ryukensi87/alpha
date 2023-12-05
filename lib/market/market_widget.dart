@@ -134,21 +134,26 @@ class _MarketWidgetState extends State<MarketWidget> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Container(
-                                    width: 40.0,
-                                    height: 40.0,
-                                    decoration: const BoxDecoration(
-                                      color: Color(0x00FFFFFF),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        CoinMarketCall.gambar(
-                                          columnCoinMarketResponse.jsonBody,
-                                        )[coinmarketIndex],
-                                        width: 300.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: const BoxDecoration(
+                                        color: Color(0x00FFFFFF),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          CoinMarketCall.gambar(
+                                            columnCoinMarketResponse.jsonBody,
+                                          )[coinmarketIndex],
+                                          width: 300.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -207,9 +212,32 @@ class _MarketWidgetState extends State<MarketWidget> {
                                                         .toList()[
                                                             coinmarketIndex]
                                                         .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              color: () {
+                                                                if (FFAppState()
+                                                                        .presentacechange <=
+                                                                    0) {
+                                                                  return const Color(
+                                                                      0xFFED0308);
+                                                                } else if (FFAppState()
+                                                                        .presentacechange >=
+                                                                    1) {
+                                                                  return FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary;
+                                                                } else {
+                                                                  return FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText;
+                                                                }
+                                                              }(),
+                                                            ),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -256,6 +284,11 @@ class _MarketWidgetState extends State<MarketWidget> {
                                                 ),
                                               ),
                                             ],
+                                          ),
+                                          Divider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
                                           ),
                                         ],
                                       ),

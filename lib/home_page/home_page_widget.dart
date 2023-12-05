@@ -630,7 +630,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             .toList()[priceupIndex]
                                                                             .toString(),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              color: () {
+                                                                                if (FFAppState().presentacechange <= 0) {
+                                                                                  return const Color(0xFFED0308);
+                                                                                } else if (FFAppState().presentacechange >= 1) {
+                                                                                  return FlutterFlowTheme.of(context).secondary;
+                                                                                } else {
+                                                                                  return FlutterFlowTheme.of(context).primaryText;
+                                                                                }
+                                                                              }(),
+                                                                            ),
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(

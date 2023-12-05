@@ -27,6 +27,12 @@ class FFAppState extends ChangeNotifier {
   set showCalender(bool value) {
     _showCalender = value;
   }
+
+  int _presentacechange = 0;
+  int get presentacechange => _presentacechange;
+  set presentacechange(int value) {
+    _presentacechange = value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
