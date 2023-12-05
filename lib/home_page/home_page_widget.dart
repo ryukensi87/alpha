@@ -453,7 +453,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                'Price Up 24Hour',
+                                                'Gainer Coin',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium
@@ -633,15 +633,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
-                                                                              color: () {
-                                                                                if (FFAppState().presentacechange <= 0) {
-                                                                                  return const Color(0xFFED0308);
-                                                                                } else if (FFAppState().presentacechange >= 1) {
-                                                                                  return FlutterFlowTheme.of(context).secondary;
-                                                                                } else {
-                                                                                  return FlutterFlowTheme.of(context).primaryText;
-                                                                                }
-                                                                              }(),
+                                                                              color: valueOrDefault<Color>(
+                                                                                FFAppState().presentacechange <= 0 ? const Color(0xFFED0308) : FlutterFlowTheme.of(context).secondary,
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                              ),
                                                                             ),
                                                                       ),
                                                                       Padding(

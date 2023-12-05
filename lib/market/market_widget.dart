@@ -125,7 +125,7 @@ class _MarketWidgetState extends State<MarketWidget> {
                           final coinmarketItem = coinmarket[coinmarketIndex];
                           return Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
+                                15.0, 0.0, 15.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: const BoxDecoration(
@@ -219,24 +219,14 @@ class _MarketWidgetState extends State<MarketWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Readex Pro',
-                                                              color: () {
-                                                                if (FFAppState()
-                                                                        .presentacechange <=
-                                                                    0) {
-                                                                  return const Color(
-                                                                      0xFFED0308);
-                                                                } else if (FFAppState()
-                                                                        .presentacechange >=
-                                                                    1) {
-                                                                  return FlutterFlowTheme.of(
+                                                              color: FFAppState()
+                                                                          .presentacechange <=
+                                                                      0
+                                                                  ? const Color(
+                                                                      0xFFED0308)
+                                                                  : FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondary;
-                                                                } else {
-                                                                  return FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText;
-                                                                }
-                                                              }(),
+                                                                      .secondary,
                                                             ),
                                                   ),
                                                   Padding(
