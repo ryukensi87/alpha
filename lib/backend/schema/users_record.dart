@@ -15,20 +15,45 @@ class UsersRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "email" field.
-  String? _email;
-  String get email => _email ?? '';
-  bool hasEmail() => _email != null;
+  // "full_name" field.
+  String? _fullName;
+  String get fullName => _fullName ?? '';
+  bool hasFullName() => _fullName != null;
 
   // "display_name" field.
   String? _displayName;
   String get displayName => _displayName ?? '';
   bool hasDisplayName() => _displayName != null;
 
+  // "email" field.
+  String? _email;
+  String get email => _email ?? '';
+  bool hasEmail() => _email != null;
+
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
+
+  // "address" field.
+  String? _address;
+  String get address => _address ?? '';
+  bool hasAddress() => _address != null;
+
+  // "emergency_contact" field.
+  String? _emergencyContact;
+  String get emergencyContact => _emergencyContact ?? '';
+  bool hasEmergencyContact() => _emergencyContact != null;
+
   // "photo_url" field.
   String? _photoUrl;
   String get photoUrl => _photoUrl ?? '';
   bool hasPhotoUrl() => _photoUrl != null;
+
+  // "referral_id" field.
+  String? _referralId;
+  String get referralId => _referralId ?? '';
+  bool hasReferralId() => _referralId != null;
 
   // "uid" field.
   String? _uid;
@@ -40,18 +65,17 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
-  // "phone_number" field.
-  String? _phoneNumber;
-  String get phoneNumber => _phoneNumber ?? '';
-  bool hasPhoneNumber() => _phoneNumber != null;
-
   void _initializeFields() {
-    _email = snapshotData['email'] as String?;
+    _fullName = snapshotData['full_name'] as String?;
     _displayName = snapshotData['display_name'] as String?;
+    _email = snapshotData['email'] as String?;
+    _phoneNumber = snapshotData['phone_number'] as String?;
+    _address = snapshotData['address'] as String?;
+    _emergencyContact = snapshotData['emergency_contact'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
+    _referralId = snapshotData['referral_id'] as String?;
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
-    _phoneNumber = snapshotData['phone_number'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -88,21 +112,29 @@ class UsersRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createUsersRecordData({
-  String? email,
+  String? fullName,
   String? displayName,
+  String? email,
+  String? phoneNumber,
+  String? address,
+  String? emergencyContact,
   String? photoUrl,
+  String? referralId,
   String? uid,
   DateTime? createdTime,
-  String? phoneNumber,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'email': email,
+      'full_name': fullName,
       'display_name': displayName,
+      'email': email,
+      'phone_number': phoneNumber,
+      'address': address,
+      'emergency_contact': emergencyContact,
       'photo_url': photoUrl,
+      'referral_id': referralId,
       'uid': uid,
       'created_time': createdTime,
-      'phone_number': phoneNumber,
     }.withoutNulls,
   );
 
@@ -114,22 +146,30 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
-    return e1?.email == e2?.email &&
+    return e1?.fullName == e2?.fullName &&
         e1?.displayName == e2?.displayName &&
+        e1?.email == e2?.email &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.address == e2?.address &&
+        e1?.emergencyContact == e2?.emergencyContact &&
         e1?.photoUrl == e2?.photoUrl &&
+        e1?.referralId == e2?.referralId &&
         e1?.uid == e2?.uid &&
-        e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.createdTime == e2?.createdTime;
   }
 
   @override
   int hash(UsersRecord? e) => const ListEquality().hash([
-        e?.email,
+        e?.fullName,
         e?.displayName,
+        e?.email,
+        e?.phoneNumber,
+        e?.address,
+        e?.emergencyContact,
         e?.photoUrl,
+        e?.referralId,
         e?.uid,
-        e?.createdTime,
-        e?.phoneNumber
+        e?.createdTime
       ]);
 
   @override

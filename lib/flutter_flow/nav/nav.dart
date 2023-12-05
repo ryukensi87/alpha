@@ -71,13 +71,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const SigninWidget() : const HomePageWidget(),
+          appStateNotifier.loggedIn ? const AccountSettingWidget() : const HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? const SigninWidget() : const HomePageWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? const AccountSettingWidget()
+              : const HomePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -85,19 +86,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
+          name: 'AccountSetting',
+          path: '/accountSetting',
+          builder: (context, params) => const AccountSettingWidget(),
+        ),
+        FFRoute(
           name: 'Signin',
           path: '/signin',
           builder: (context, params) => const SigninWidget(),
         ),
         FFRoute(
-          name: 'SignUp',
-          path: '/signUp',
-          builder: (context, params) => const SignUpWidget(),
-        ),
-        FFRoute(
           name: 'Market',
           path: '/market',
           builder: (context, params) => const MarketWidget(),
+        ),
+        FFRoute(
+          name: 'Register',
+          path: '/register',
+          builder: (context, params) => const RegisterWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
