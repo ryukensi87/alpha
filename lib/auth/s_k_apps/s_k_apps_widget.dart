@@ -80,7 +80,7 @@ class _SKAppsWidgetState extends State<SKAppsWidget> {
                 ),
           ),
           actions: const [],
-          centerTitle: true,
+          centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(

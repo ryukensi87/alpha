@@ -93,7 +93,7 @@ class _DetailMarketWidgetState extends State<DetailMarketWidget> {
                 ),
           ),
           actions: const [],
-          centerTitle: true,
+          centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(

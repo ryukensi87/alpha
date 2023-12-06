@@ -73,7 +73,7 @@ class _MarketWidgetState extends State<MarketWidget> {
             },
           ),
           title: Text(
-            'Central Market Coin',
+            'Central Market',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -81,7 +81,7 @@ class _MarketWidgetState extends State<MarketWidget> {
                 ),
           ),
           actions: const [],
-          centerTitle: true,
+          centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(

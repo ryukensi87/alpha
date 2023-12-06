@@ -80,7 +80,7 @@ class _KebijakanAppsWidgetState extends State<KebijakanAppsWidget> {
                 ),
           ),
           actions: const [],
-          centerTitle: true,
+          centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(
