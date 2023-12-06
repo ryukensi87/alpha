@@ -5,3 +5,4 @@ export '/auth/account_setting/account_setting_widget.dart'
 export '/auth/signin/signin_widget.dart' show SigninWidget;
 export '/market/market_widget.dart' show MarketWidget;
 export '/auth/register/register_widget.dart' show RegisterWidget;
+export '/detail_market/detail_market_widget.dart' show DetailMarketWidget;

@@ -1,7 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/component/bottom_bar/bottom_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -136,7 +138,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 40.0, 0.0, 0.0),
+                              0.0, 20.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -199,9 +201,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 BorderRadius
                                                                     .circular(
                                                                         15.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://picsum.photos/seed/268/600',
+                                                            child: Image.asset(
+                                                              'assets/images/Promo.png',
                                                               width: 300.0,
                                                               height: 200.0,
                                                               fit: BoxFit.cover,
@@ -221,9 +222,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 BorderRadius
                                                                     .circular(
                                                                         15.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://picsum.photos/seed/586/600',
+                                                            child: Image.asset(
+                                                              'assets/images/Promo.png',
                                                               width: 300.0,
                                                               height: 200.0,
                                                               fit: BoxFit.cover,
@@ -243,9 +243,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 BorderRadius
                                                                     .circular(
                                                                         15.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://picsum.photos/seed/212/600',
+                                                            child: Image.asset(
+                                                              'assets/images/Promo.png',
                                                               width: 300.0,
                                                               height: 200.0,
                                                               fit: BoxFit.cover,
@@ -257,8 +256,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               BorderRadius
                                                                   .circular(
                                                                       8.0),
-                                                          child: Image.network(
-                                                            'https://picsum.photos/seed/467/600',
+                                                          child: Image.asset(
+                                                            'assets/images/Promo.png',
                                                             width: 300.0,
                                                             height: 200.0,
                                                             fit: BoxFit.cover,
@@ -374,8 +373,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       width: double.infinity,
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0x8B57636C),
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
@@ -407,33 +407,69 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     .campaign_sharp,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryBackground,
+                                                                    .primaryText,
                                                                 size: 25.0,
                                                               ),
                                                             ),
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Thanks for Try Aplication Alpa Exchange',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                    fontSize:
-                                                                        14.0,
+                                                          Expanded(
+                                                            child: StreamBuilder<
+                                                                List<
+                                                                    MarquetextRecord>>(
+                                                              stream:
+                                                                  queryMarquetextRecord(
+                                                                singleRecord:
+                                                                    true,
+                                                              ),
+                                                              builder: (context,
+                                                                  snapshot) {
+                                                                // Customize what your widget looks like when it's loading.
+                                                                if (!snapshot
+                                                                    .hasData) {
+                                                                  return Center(
+                                                                    child:
+                                                                        SizedBox(
+                                                                      width:
+                                                                          50.0,
+                                                                      height:
+                                                                          50.0,
+                                                                      child:
+                                                                          CircularProgressIndicator(
+                                                                        valueColor:
+                                                                            AlwaysStoppedAnimation<Color>(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                }
+                                                                List<MarquetextRecord>
+                                                                    marqueeTextMarquetextRecordList =
+                                                                    snapshot
+                                                                        .data!;
+                                                                final marqueeTextMarquetextRecord =
+                                                                    marqueeTextMarquetextRecordList
+                                                                            .isNotEmpty
+                                                                        ? marqueeTextMarquetextRecordList
+                                                                            .first
+                                                                        : null;
+                                                                return SizedBox(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 20.0,
+                                                                  child: custom_widgets
+                                                                      .MarqueeText(
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height:
+                                                                        20.0,
+                                                                    runningText:
+                                                                        marqueeTextMarquetextRecord!
+                                                                            .runingtext,
                                                                   ),
+                                                                );
+                                                              },
                                                             ),
                                                           ),
                                                         ],
@@ -459,10 +495,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
+                                                      color: const Color(0xBC000000),
                                                     ),
                                               ),
                                             ],
@@ -572,49 +605,82 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  Text(
-                                                                    (CoinMarketCall
-                                                                            .nama(
-                                                                      rowCoinMarketResponse
-                                                                          .jsonBody,
-                                                                    ) as List)
-                                                                        .map<String>((s) =>
-                                                                            s.toString())
-                                                                        .toList()[priceupIndex],
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium,
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                    child: Text(
+                                                                      (CoinMarketCall
+                                                                              .nama(
+                                                                        rowCoinMarketResponse
+                                                                            .jsonBody,
+                                                                      ) as List)
+                                                                          .map<String>((s) =>
+                                                                              s.toString())
+                                                                          .toList()[priceupIndex],
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            fontSize:
+                                                                                16.0,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
                                                                             5.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          'IDR',
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            0.0,
+                                                                            10.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              5.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'IDR',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  color: FlutterFlowTheme.of(context).alternate,
+                                                                                  fontSize: 12.0,
+                                                                                ),
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                      Text(
-                                                                        (CoinMarketCall.harga(
-                                                                          rowCoinMarketResponse
-                                                                              .jsonBody,
-                                                                        ) as List)
-                                                                            .map<String>((s) => s.toString())
-                                                                            .toList()[priceupIndex]
-                                                                            .toString(),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ],
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            (CoinMarketCall.harga(
+                                                                              rowCoinMarketResponse.jsonBody,
+                                                                            ) as List)
+                                                                                .map<String>((s) => s.toString())
+                                                                                .toList()[priceupIndex]
+                                                                                .toString(),
+                                                                            '0',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                color: FlutterFlowTheme.of(context).alternate,
+                                                                                fontSize: 12.0,
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                   Row(
                                                                     mainAxisSize:
@@ -622,21 +688,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             .max,
                                                                     children: [
                                                                       Text(
-                                                                        (CoinMarketCall.persentasechange24(
-                                                                          rowCoinMarketResponse
-                                                                              .jsonBody,
-                                                                        ) as List)
-                                                                            .map<String>((s) => s.toString())
-                                                                            .toList()[priceupIndex]
-                                                                            .toString(),
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          (CoinMarketCall.persentasechange24(
+                                                                            rowCoinMarketResponse.jsonBody,
+                                                                          ) as List)
+                                                                              .map<String>((s) => s.toString())
+                                                                              .toList()[priceupIndex]
+                                                                              .toString(),
+                                                                          '0',
+                                                                        ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
-                                                                              color: valueOrDefault<Color>(
-                                                                                FFAppState().presentacechange <= 0 ? const Color(0xFFED0308) : FlutterFlowTheme.of(context).secondary,
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                              ),
+                                                                              color: () {
+                                                                                if (!(FFAppState().presentacechange <= 0 ? true : true)) {
+                                                                                  return FlutterFlowTheme.of(context).secondary;
+                                                                                } else if (!(FFAppState().presentacechange >= 0 ? true : true)) {
+                                                                                  return FlutterFlowTheme.of(context).error;
+                                                                                } else {
+                                                                                  return FlutterFlowTheme.of(context).secondary;
+                                                                                }
+                                                                              }(),
+                                                                              fontSize: 12.0,
                                                                             ),
                                                                       ),
                                                                       Padding(

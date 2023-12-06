@@ -87,7 +87,7 @@ class _MarketWidgetState extends State<MarketWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 5.0, 10.0),
             child: FutureBuilder<ApiCallResponse>(
               future: CoinMarketCall.call(),
               builder: (context, snapshot) {
@@ -177,25 +177,87 @@ class _MarketWidgetState extends State<MarketWidget> {
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 5.0),
-                                                child: Text(
-                                                  (CoinMarketCall.nama(
-                                                    columnCoinMarketResponse
-                                                        .jsonBody,
-                                                  ) as List)
-                                                          .map<String>((s) =>
-                                                              s.toString())
-                                                          .toList()[
-                                                      coinmarketIndex],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 18.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      'DetailMarket',
+                                                      queryParameters: {
+                                                        'harga': serializeParam(
+                                                          CoinMarketCall.harga(
+                                                            columnCoinMarketResponse
+                                                                .jsonBody,
+                                                          )[coinmarketIndex]
+                                                              .toDouble(),
+                                                          ParamType.double,
+                                                        ),
+                                                        'gambar':
+                                                            serializeParam(
+                                                          CoinMarketCall.gambar(
+                                                            columnCoinMarketResponse
+                                                                .jsonBody,
+                                                          )[coinmarketIndex],
+                                                          ParamType.String,
+                                                        ),
+                                                        'persentasikenaikan':
+                                                            serializeParam(
+                                                          CoinMarketCall
+                                                                  .persentasechange24(
+                                                            columnCoinMarketResponse
+                                                                .jsonBody,
+                                                          )[coinmarketIndex]
+                                                              .round(),
+                                                          ParamType.int,
+                                                        ),
+                                                        'marketcap':
+                                                            serializeParam(
+                                                          CoinMarketCall
+                                                                  .marketcap(
+                                                            columnCoinMarketResponse
+                                                                .jsonBody,
+                                                          )[coinmarketIndex]
+                                                              .toDouble(),
+                                                          ParamType.double,
+                                                        ),
+                                                        'rankcoin':
+                                                            serializeParam(
+                                                          CoinMarketCall
+                                                              .marketrank(
+                                                            columnCoinMarketResponse
+                                                                .jsonBody,
+                                                          )[coinmarketIndex],
+                                                          ParamType.int,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    (CoinMarketCall.nama(
+                                                      columnCoinMarketResponse
+                                                          .jsonBody,
+                                                    ) as List)
+                                                            .map<String>((s) =>
+                                                                s.toString())
+                                                            .toList()[
+                                                        coinmarketIndex],
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 18.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
                                               Row(
@@ -212,22 +274,26 @@ class _MarketWidgetState extends State<MarketWidget> {
                                                         .toList()[
                                                             coinmarketIndex]
                                                         .toString(),
-                                                    style:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: FFAppState()
-                                                                          .presentacechange <=
-                                                                      0
-                                                                  ? const Color(
-                                                                      0xFFED0308)
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            FFAppState().presentacechange <=
+                                                                    0
+                                                                ? const Color(
+                                                                    0xFFED0308)
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
                                                   ),
                                                   Padding(
                                                     padding:

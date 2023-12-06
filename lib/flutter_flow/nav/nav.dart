@@ -104,6 +104,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Register',
           path: '/register',
           builder: (context, params) => const RegisterWidget(),
+        ),
+        FFRoute(
+          name: 'DetailMarket',
+          path: '/detailMarket',
+          builder: (context, params) => DetailMarketWidget(
+            harga: params.getParam('harga', ParamType.double),
+            gambar: params.getParam('gambar', ParamType.String),
+            persentasikenaikan:
+                params.getParam('persentasikenaikan', ParamType.int),
+            marketcap: params.getParam('marketcap', ParamType.double),
+            rankcoin: params.getParam('rankcoin', ParamType.int),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
