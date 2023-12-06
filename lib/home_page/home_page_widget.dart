@@ -77,7 +77,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 0.0, 15.0, 0.0),
+                            15.0, 10.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -263,30 +263,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://picsum.photos/seed/168/600',
-                                                            width: 300.0,
-                                                            height: 200.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://picsum.photos/seed/579/600',
-                                                            width: 300.0,
-                                                            height: 200.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -308,7 +284,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .pageViewController ??=
                                                             PageController(
                                                                 initialPage: 0),
-                                                        count: 6,
+                                                        count: 4,
                                                         axisDirection:
                                                             Axis.horizontal,
                                                         onDotClicked:

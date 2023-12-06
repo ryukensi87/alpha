@@ -116,6 +116,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             marketcap: params.getParam('marketcap', ParamType.double),
             rankcoin: params.getParam('rankcoin', ParamType.int),
           ),
+        ),
+        FFRoute(
+          name: 'SKApps',
+          path: '/sKApps',
+          builder: (context, params) => const SKAppsWidget(),
+        ),
+        FFRoute(
+          name: 'KebijakanApps',
+          path: '/kebijakanApps',
+          builder: (context, params) => const KebijakanAppsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
